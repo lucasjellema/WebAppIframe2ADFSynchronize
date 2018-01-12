@@ -5,12 +5,17 @@
     <af:panelStretchLayout id="psl1" styleClass="AFStretchWidth" bottomHeight="0px" topHeight="40px" endWidth="0px"
                            startWidth="0px" dimensionsFrom="parent">
         <f:facet name="top">
-            <af:panelHeader text="JET Client" id="ph1"></af:panelHeader>
+            <af:panelHeader text="JET Client" id="ph1">
+            <!-- we do not really care about this client attribute; however, by rendering it we force execution of 
+            method getJetInlineFrameClientId()  on Client2Server that also writes a little snippet of JavaScript to set
+            the JavaScript variable jetIframeClientId with the actual client side id for the iframe -->
+                <af:clientAttribute name="inlineFrameId" value="#{client2serverBean.jetInlineFrameClientId}"/>
+            </af:panelHeader>
         </f:facet>
         <f:facet name="center">
             <af:panelGroupLayout id="pg1">
                 <af:inlineFrame source="jet-web-app/index.xhtml?token=yuweyuweyu" id="jetIframe" sizing="preferred"
-                                styleClass="AFStretchWidth">
+                                styleClass="AFStretchWidth" binding="#{client2serverBean.jetIframe}">
                     <af:serverListener type="messageRouter" method="#{client2serverBean.handleMessageFromJet}"/>
                 </af:inlineFrame>
             </af:panelGroupLayout>

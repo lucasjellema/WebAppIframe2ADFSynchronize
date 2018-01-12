@@ -1,39 +1,18 @@
 package nl.amis.frontend.jet2adf.view.adfX;
 
-import javax.el.ELContext;
-
 import javax.faces.context.FacesContext;
 
 import oracle.adf.view.rich.component.rich.input.RichInputText;
-
-import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
-import org.apache.myfaces.trinidad.util.Service;
-
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-
-import oracle.adf.share.logging.ADFLogger;
-import oracle.adf.view.rich.component.rich.nav.RichButton;
-import oracle.adf.view.rich.render.ClientEvent;
-
-import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
-import org.apache.myfaces.trinidad.util.ComponentReference;
-import org.apache.myfaces.trinidad.util.Service;
-
-import javax.faces.context.FacesContext;
-
-import oracle.adf.view.rich.component.rich.nav.RichButton;
-
 import oracle.adf.view.rich.context.AdfFacesContext;
 
+import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
 import org.apache.myfaces.trinidad.util.ComponentReference;
+import org.apache.myfaces.trinidad.util.Service;
 
 
 public class DetailsBean {
 
     private String message;
-
-
     private ComponentReference messageField;
 
     public void setMessageComponent(RichInputText messageFieldInputText) {
@@ -62,12 +41,10 @@ public class DetailsBean {
 
     public void process(Object payload) {
         System.out.println("busy processing " + payload);
-
         setMessage(payload.toString());
         AdfFacesContext adfctx = AdfFacesContext.getCurrentInstance();
         adfctx.addPartialTarget(getMessageComponent());
-writeJavaScriptToClient("console.log('Message received "+payload.toString()+"');");
-
+        writeJavaScriptToClient("console.log('Message received "+payload.toString()+"');");
     }
 
     public void setMessage(String message) {
