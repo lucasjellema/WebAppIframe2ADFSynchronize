@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:panelHeader text="Classic ADF X Taskflow" id="ph1">
+        <af:inputText label="Message" id="it1" binding="#{pageFlowScope.detailsBean.messageComponent}"
+                      value="#{pageFlowScope.detailsBean.message}" columns="120" rows="1"/>
+    </af:panelHeader>
+</ui:composition>

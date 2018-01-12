@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:resource type="javascript" source="resources/js/adf-jet-client-app.js"/>
+    <af:panelStretchLayout id="psl1" styleClass="AFStretchWidth" bottomHeight="0px" topHeight="40px" endWidth="0px"
+                           startWidth="0px" dimensionsFrom="parent">
+        <f:facet name="top">
+            <af:panelHeader text="JET Client" id="ph1"></af:panelHeader>
+        </f:facet>
+        <f:facet name="center">
+            <af:panelGroupLayout id="pg1">
+                <af:inlineFrame source="jet-web-app/index.xhtml?token=yuweyuweyu" id="jetIframe" sizing="preferred"
+                                styleClass="AFStretchWidth">
+                    <af:serverListener type="messageRouter" method="#{client2serverBean.handleMessageFromJet}"/>
+                </af:inlineFrame>
+            </af:panelGroupLayout>
+        </f:facet>
+    </af:panelStretchLayout>
+</ui:composition>

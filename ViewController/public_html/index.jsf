@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="index.jsf" id="d1">
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Header -->
+                                    <af:panelHeader text="Application Home" id="ph1">
+            </af:panelHeader>
+
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <af:panelSplitter orientation="vertical" splitterPosition="400" id="ps1">
+                            <f:facet name="first">
+                                <!-- Left -->
+                                 <af:region value="#{bindings.ADFJETContainertaskflow1.regionModel}" id="r2"/>
+                            </f:facet>
+                            <f:facet name="second">
+                                <!-- Content -->
+                                <af:region value="#{bindings.ADFXtaskflow1.regionModel}" id="r1"/>
+                               
+                            </f:facet>
+                        </af:panelSplitter>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

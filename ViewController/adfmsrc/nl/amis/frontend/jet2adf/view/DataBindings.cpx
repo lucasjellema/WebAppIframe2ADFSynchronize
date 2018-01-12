@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.9.14" id="DataBindings"
+             SeparateXMLFiles="false" Package="nl.amis.frontend.jet2adf.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/JETView.jsff" usageId="nl_amis_frontend_jet2adf_view_JETViewPageDef"/>
+    <page path="/view.jsff" usageId="nl_amis_frontend_jet2adf_view_viewPageDef"/>
+    <page path="/index.jsf" usageId="nl_amis_frontend_jet2adf_view_indexPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="nl_amis_frontend_jet2adf_view_JETViewPageDef"
+          path="nl.amis.frontend.jet2adf.view.pageDefs.JETViewPageDef"/>
+    <page id="nl_amis_frontend_jet2adf_view_viewPageDef" path="nl.amis.frontend.jet2adf.view.pageDefs.viewPageDef"/>
+    <page id="nl_amis_frontend_jet2adf_view_indexPageDef" path="nl.amis.frontend.jet2adf.view.pageDefs.indexPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="EventHandlerBean" path="nl.amis.frontend.jet2adf.view.EventHandlerBean"/>
+    <dc id="EventPublisherBean" path="nl.amis.frontend.jet2adf.view.EventPublisherBean"/>
+  </dataControlUsages>
+</Application>

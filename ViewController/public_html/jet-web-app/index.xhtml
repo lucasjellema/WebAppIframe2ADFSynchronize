@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Client Side Web App</title>
+        <!--        <script src="client-web-app-lib.js"></script>-->
+        <script>
+          function callParent() {
+              console.log('send message from Web App to parent window');
+              var jetinputfield = document.getElementById('jetinputfield');
+              var inputvalue = jetinputfield.value;
+
+              var message = {
+                  "message" :  {
+                     "value" : inputvalue
+                  },
+                  "mydata" :  {
+                      "param1" : 42, "param2" : "train"
+                  }
+              };
+              // here we can restrict which parent page can receive our message
+              // by specifying the origin that this page should have
+              var targetOrigin = '*';
+              parent.postMessage(message, targetOrigin);
+          }
+          //callParent
+          
+          function init() {
+             // attach listener to receive message from parent; this is not required for sending messages to the parent window
+              window.addEventListener("message", function (event) {
+                  console.log("Iframe receives message from parent" + event);
+              },
+              false);
+          }
+          //init
+          
+          document.addEventListener("DOMContentLoaded", function (event) {
+              init();
+          });
+        </script>
+    </head>
+    <body>
+        <h2>Client Web App</h2>
+        <div id="content">Content</div>
+        <input id="jetinputfield" type="text" value="Default"/>         
+        <a href="#" onclick="callParent()">Send Message</a>
+    </body>
+</html>
