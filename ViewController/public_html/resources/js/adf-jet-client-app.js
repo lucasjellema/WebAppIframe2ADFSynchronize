@@ -43,5 +43,5 @@ function processCountryChangedEvent(newCountry) {
     console.log("Client Side handling of Country Changed event; now transfer to IFRAME");    
     var iframe = findIframeWithIdEndingWith('jetIframe::f');
     var targetOrigin = '*';
-    iframe.contentWindow.postMessage("{'eventType':'countryChanged','payload':'"+newCountry+"'}", targetOrigin);
+    iframe.contentWindow.postMessage({'eventType':'countryChanged','payload':newCountry}, targetOrigin);
 }

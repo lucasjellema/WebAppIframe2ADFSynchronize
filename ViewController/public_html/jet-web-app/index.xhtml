@@ -27,10 +27,10 @@
               // attach listener to receive message from parent; this is not required for sending messages to the parent window
               window.addEventListener("message", function (event) {
                   console.log("Iframe receives message from parent" + event.data);
-                  var countrySpan = document.getElementById('currentCountry');
-                  var parsedEvent = JSON.parse(event.data.replace(/'/g, "\""));
-                  if (parsedEvent) {
-                      countrySpan.innerHTML = "Fresh Country: " + parsedEvent.payload;
+                  console.log("Iframe receives message from parent" + event.data);
+                  if (event.data &amp;&amp; event.data.eventType == 'countryChanged' &amp;&amp; event.data.payload) {
+                      var countrySpan = document.getElementById('currentCountry');
+                      countrySpan.innerHTML = "Fresh Country: " + event.data.payload;
                   }
               },
               false);
