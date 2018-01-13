@@ -14,7 +14,10 @@
         </f:facet>
         <f:facet name="center">
             <af:panelGroupLayout id="pg1">
-                <af:inlineFrame source="jet-web-app/index.xhtml" id="jetIframe" sizing="preferred"
+            <!-- local source -= jet-web-app/index.xhtml "
+            local JET: http://localhost:8000/
+            -->
+                <af:inlineFrame source="http://localhost:8000/" id="jetIframe" sizing="preferred"
                                 styleClass="AFStretchWidth" binding="#{client2serverBean.jetIframe}">
                     <af:serverListener type="messageRouter" method="#{client2serverBean.handleMessageFromJet}"/>
                 </af:inlineFrame>

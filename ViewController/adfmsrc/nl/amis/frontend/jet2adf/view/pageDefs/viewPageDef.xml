@@ -24,7 +24,7 @@
     <eventMap xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
         <event name="ClientAppEvent">
             <producer region="*">
-                <consumer handler="handleEvent"/>
+                <consumer handler="handleEvent" refresh="false"/>
             </producer>
         </event>
     </eventMap>

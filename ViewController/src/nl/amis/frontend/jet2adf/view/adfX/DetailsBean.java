@@ -32,11 +32,31 @@ public class DetailsBean {
             return null;
         }
     }
-
     public String getMessageComponentClientId() {
         FacesContext ctx = FacesContext.getCurrentInstance();
         return this.getMessageComponent().getClientId(ctx);
     }
+
+    private ComponentReference browserField;
+
+    public void setBrowserComponent(RichInputText browserFieldInputText) {
+        this.browserField = ComponentReference.newUIComponentReference(browserFieldInputText);
+    }
+
+    public RichInputText getBrowserComponent() {
+        if (this.browserField != null) {
+            return (RichInputText) this.browserField.getComponent();
+        } else {
+            return null;
+        }
+    }
+    public String getBrowserComponentClientId() {
+        FacesContext ctx = FacesContext.getCurrentInstance();
+        String id = this.getBrowserComponent().getClientId(ctx);
+        writeJavaScriptToClient("console.log('Browser InputText CLient Id = "+id+"'); ADFXBrowserClientId ='"+id+"'");
+        return id;
+    }
+
     //generic, reusable helper method to call JavaScript on a client
     private void writeJavaScriptToClient(String script) {
         FacesContext fctx = FacesContext.getCurrentInstance();

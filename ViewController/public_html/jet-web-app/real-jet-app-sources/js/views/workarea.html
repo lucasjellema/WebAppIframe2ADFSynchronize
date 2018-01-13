@@ -1,6 +1,17 @@
 <h2>Workarea</h2>
 <div>
-        <oj-label for="country-input">Country</oj-label>
-        <oj-input-text id="country-input" value="{{country}}" on-value-changed="{{valueChangedListener}}" ></oj-input-text>
-    </div>
-<h4 data-bind="text: country"></h4>
+    <oj-label for="country-input">Country</oj-label>
+    <oj-input-text id="country-input" value="{{country}}" on-value-changed="{{valueChangedListener}}"></oj-input-text>
+    <h4 data-bind="text: country"></h4>
+    <oj-label for="color-input">Color</oj-label>
+    <oj-input-text id="color-input" value="{{color}}"></oj-input-text>
+    <h4 data-bind="text: color"></h4>
+    <oj-label for="combobox">Browser Type Selection</oj-label>
+    <oj-combobox-one id="combobox" value="{{browser}}" on-value-changed="{{browserChangedListener}}" style="max-width:20em">
+        <oj-option value="Internet Explorer">Internet Explorer</oj-option>
+        <oj-option value="Firefox">Firefox</oj-option>
+        <oj-option value="Chrome">Chrome</oj-option>
+        <oj-option value="Opera">Opera</oj-option>
+        <oj-option value="Safari">Safari</oj-option>
+    </oj-combobox-one>
+</div>

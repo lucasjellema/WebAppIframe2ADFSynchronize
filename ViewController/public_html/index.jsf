@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="index.jsf" id="d1">
-        <af:form id="f1">
+ <af:resource type="javascript" source="/resources/js/adf-client-event-bus.js"/>
+  <af:clientListener method="initializeEventBus" type="load"/>
+  <af:form id="f1">
             <af:panelGridLayout id="pgl1">
                 <af:gridRow height="50px" id="gr1">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
@@ -10,7 +12,7 @@
                         <af:panelHeader text="Application Home" id="ph1"></af:panelHeader>
                     </af:gridCell>
                 </af:gridRow>
-                <af:gridRow height="100%" id="gr2">
+                <af:gridRow height="60%" id="gr2">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
                         <af:panelSplitter orientation="vertical" splitterPosition="400" id="ps1">
                             <f:facet name="first">
@@ -23,6 +25,7 @@
                             </f:facet>
                         </af:panelSplitter>
                     </af:gridCell>
+                    
                 </af:gridRow>
             </af:panelGridLayout>
         </af:form>
