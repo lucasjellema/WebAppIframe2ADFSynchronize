@@ -13,6 +13,9 @@ function init() {
             publishEvent("browserSelectionEvent", 
             {
                 "selectedBrowser" : browser
+               ,"sourceTaskFlow" :"ADF-JET-container-taskflow"
+               ,"eventOrigin" : "JET:jet-embedded"
+
             });
         }
         else {

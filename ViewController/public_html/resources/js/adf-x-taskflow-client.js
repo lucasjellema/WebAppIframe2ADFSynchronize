@@ -2,6 +2,7 @@
           publishEvent("colorSelectionEvent", 
           {
               "selectedColor" : color
+              ,"sourceTaskFlow" :"ADF-X-taskflow"
           });
       }
  
