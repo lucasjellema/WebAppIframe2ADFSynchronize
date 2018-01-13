@@ -5,8 +5,8 @@
     <af:panelStretchLayout id="psl1" styleClass="AFStretchWidth" bottomHeight="0px" topHeight="40px" endWidth="0px"
                            startWidth="0px" dimensionsFrom="parent">
         <f:facet name="top">
-            <af:panelHeader text="JET Client #{client2serverBean.time}" id="ph1">
-            <!-- we do not really care about this client attribute; however, by rendering it we force execution of 
+            <af:panelHeader text="JET Client" id="ph1">
+                <!-- we do not really care about this client attribute; however, by rendering it we force execution of 
             method getJetInlineFrameClientId()  on Client2Server that also writes a little snippet of JavaScript to set
             the JavaScript variable jetIframeClientId with the actual client side id for the iframe -->
                 <af:clientAttribute name="inlineFrameId" value="#{client2serverBean.jetInlineFrameClientId}"/>
@@ -14,21 +14,10 @@
         </f:facet>
         <f:facet name="center">
             <af:panelGroupLayout id="pg1">
-                <af:panelSplitter id="ps1">
-                    <f:facet name="first">
-                        <af:inlineFrame source="jet-web-app/index.xhtml" id="jetIframe" sizing="preferred"
-                                        styleClass="AFStretchWidth" binding="#{client2serverBean.jetIframe}">
-                            <af:serverListener type="messageRouter" method="#{client2serverBean.handleMessageFromJet}"/>
-                            <af:clientListener type="inlineFrameLoad" method="loadHandler"/>
-                        </af:inlineFrame>
-                    </f:facet>
-                    <f:facet name="second">
-<!--                        <af:inlineFrame source="http://nu.nl" id="jetIframe2ZZZZZZZZZZZZ" sizing="preferred"
-                                        styleClass="AFStretchWidth">
-<af:clientListener type="inlineFrameLoad" method="loadHandler"/>
-</af:inlineFrame>
-    -->                </f:facet>
-                </af:panelSplitter>
+                <af:inlineFrame source="jet-web-app/index.xhtml" id="jetIframe" sizing="preferred"
+                                styleClass="AFStretchWidth" binding="#{client2serverBean.jetIframe}">
+                    <af:serverListener type="messageRouter" method="#{client2serverBean.handleMessageFromJet}"/>
+                </af:inlineFrame>
             </af:panelGroupLayout>
         </f:facet>
     </af:panelStretchLayout>

@@ -20,15 +20,6 @@
                 <event name="CountryChangedEvent"/>
             </events>
         </methodAction>
-        <methodAction id="publishCountryChangedEvent" RequiresUpdateModel="true" Action="invokeMethod" MethodName="publishEvent"
-                      IsViewObjectMethod="false" DataControl="EventPublisherBean"
-                      InstanceName="bindings.publishEvent.dataControl.dataProvider"
-                      ReturnName="data.EventPublisherBean.methodResults.publishEvent_publishEvent_dataControl_dataProvider_publishEvent_result">
-            <NamedData NDName="payload" NDType="java.lang.Object"/>
-             <events xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
-                <event name="CountryChangedEvent"/>
-            </events>
-        </methodAction>
     </bindings>
     <eventMap xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
         <event name="ClientAppEvent">

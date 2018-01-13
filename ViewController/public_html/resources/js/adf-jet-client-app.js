@@ -40,16 +40,8 @@ function findIframeWithIdEndingWith(idEndString) {
 }
 
 function processCountryChangedEvent(newCountry) {
-    console.log("Client Side handling of Country Changed event; now transfer to IFRAME");
-    
-    var iframe = findIframeWithIdEndingWith('jetIframe');
-        var targetOrigin = '*';
-
+    console.log("Client Side handling of Country Changed event; now transfer to IFRAME");    
+    var iframe = findIframeWithIdEndingWith('jetIframe::f');
+    var targetOrigin = '*';
     iframe.contentWindow.postMessage("{'eventType':'countryChanged','payload':'"+newCountry+"'}", targetOrigin);
-
 }
-
-  function loadHandler(event)
-   {
-    console.log("Reload eevnt from iframe "+JSON.stringify(event));
-   }
