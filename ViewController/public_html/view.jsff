@@ -3,5 +3,14 @@
     <af:panelHeader text="Classic ADF X Taskflow" id="ph1">
         <af:inputText label="Message" id="it1" binding="#{pageFlowScope.detailsBean.messageComponent}"
                       value="#{pageFlowScope.detailsBean.message}" columns="120" rows="1"/>
+        <af:selectOneChoice label="Choose a country" id="soc1" autoSubmit="true"
+                            valueChangeListener="#{pageFlowScope.detailsBean.countryChangeHandler}">
+            <af:selectItem label="The Netherlands" value="nl" id="si1"/>
+            <af:selectItem label="Germany" value="de" id="si2"/>
+            <af:selectItem label="United Kingdom of Great Brittain and Northern Ireland" value="uk" id="si3"/>
+            <af:selectItem label="United States of America" value="us" id="si4"/>
+            <af:selectItem label="Spain" value="es" id="si5"/>
+            <af:selectItem label="Norway" value="no" id="si6"/>
+        </af:selectOneChoice>
     </af:panelHeader>
 </ui:composition>

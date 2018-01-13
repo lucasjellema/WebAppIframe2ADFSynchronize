@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="viewPageDef"
                 Package="nl.amis.frontend.jet2adf.view.pageDefs">
-  <parameters/>
-  <executables>
-    <variableIterator id="variables"/>
-  </executables>
-  <bindings>
-    <methodAction id="handleEvent" RequiresUpdateModel="true" Action="invokeMethod" MethodName="handleEvent"
-                  IsViewObjectMethod="false" DataControl="EventHandlerBean"
-                  InstanceName="bindings.handleEvent.dataControl.dataProvider">
-<NamedData NDName="payload" NDValue="${payLoad}" NDType="java.lang.Object"/>
-</methodAction>
-  </bindings>
-
-
-  <eventMap xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
-    <event name="ClientAppEvent">
-      <producer region="*">
-        <consumer handler="handleEvent"/>
-      </producer>
-    </event>
-  </eventMap></pageDefinition>
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+    </executables>
+    <bindings>
+        <methodAction id="handleEvent" RequiresUpdateModel="true" Action="invokeMethod" MethodName="handleEvent"
+                      IsViewObjectMethod="false" DataControl="EventHandlerBean"
+                      InstanceName="bindings.handleEvent.dataControl.dataProvider">
+            <NamedData NDName="payload" NDValue="${payLoad}" NDType="java.lang.Object"/>
+        </methodAction>
+        <methodAction id="publishEvent" RequiresUpdateModel="true" Action="invokeMethod" MethodName="publishEvent"
+                      IsViewObjectMethod="false" DataControl="EventPublisherBean"
+                      InstanceName="bindings.publishEvent.dataControl.dataProvider"
+                      ReturnName="data.EventPublisherBean.methodResults.publishEvent_publishEvent_dataControl_dataProvider_publishEvent_result">
+            <NamedData NDName="payload" NDType="java.lang.Object"/>
+            <events xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+                <event name="CountryChangedEvent"/>
+            </events>
+        </methodAction>
+        <methodAction id="publishCountryChangedEvent" RequiresUpdateModel="true" Action="invokeMethod" MethodName="publishEvent"
+                      IsViewObjectMethod="false" DataControl="EventPublisherBean"
+                      InstanceName="bindings.publishEvent.dataControl.dataProvider"
+                      ReturnName="data.EventPublisherBean.methodResults.publishEvent_publishEvent_dataControl_dataProvider_publishEvent_result">
+            <NamedData NDName="payload" NDType="java.lang.Object"/>
+             <events xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+                <event name="CountryChangedEvent"/>
+            </events>
+        </methodAction>
+    </bindings>
+    <eventMap xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+        <event name="ClientAppEvent">
+            <producer region="*">
+                <consumer handler="handleEvent"/>
+            </producer>
+        </event>
+    </eventMap>
+</pageDefinition>

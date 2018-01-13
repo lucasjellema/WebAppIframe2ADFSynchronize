@@ -1,4 +1,4 @@
-package nl.amis.frontend.jet2adf.view.adfjetclient;
+package nl.amis.frontend.jet2adf.view;
 
 public class EventPublisherBean {
     public EventPublisherBean() {

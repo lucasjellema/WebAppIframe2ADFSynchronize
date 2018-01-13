@@ -8,7 +8,7 @@
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <taskFlow id="ADFJETContainertaskflow1"
               taskFlowId="/WEB-INF/ADF-JET-Container-taskflow.xml#ADF-JET-Container-taskflow" activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+              xmlns="http://xmlns.oracle.com/adf/controller/binding" RefreshCondition="1!=2"/>
   </executables>
   <bindings/>
 </pageDefinition>

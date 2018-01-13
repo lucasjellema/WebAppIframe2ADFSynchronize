@@ -18,6 +18,10 @@ public class Client2Server {
     public Client2Server() {
         super();
     }
+    
+    public String getTime() {
+        return new java.util.Date().toString();
+    }
     public String getJetInlineFrameClientId() {
         FacesContext ctx = FacesContext.getCurrentInstance();
         String id = this.getJetIframe().getClientId(ctx);

@@ -18,6 +18,7 @@
     <page id="nl_amis_frontend_jet2adf_view_indexPageDef" path="nl.amis.frontend.jet2adf.view.pageDefs.indexPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="EventConsumer" path="nl.amis.frontend.jet2adf.view.EventConsumer"/>
     <dc id="EventHandlerBean" path="nl.amis.frontend.jet2adf.view.EventHandlerBean"/>
     <dc id="EventPublisherBean" path="nl.amis.frontend.jet2adf.view.EventPublisherBean"/>
   </dataControlUsages>

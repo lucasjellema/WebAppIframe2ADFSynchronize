@@ -5,11 +5,11 @@
                       ImplDef="oracle.adf.model.adapter.bean.BeanDCDefinition" SupportsTransactions="false"
                       SupportsSortCollection="true" SupportsResetState="false" SupportsRangesize="false"
                       SupportsFindMode="false" SupportsUpdates="true"
-                      Definition="nl.amis.frontend.jet2adf.view.adfjetclient.EventPublisherBean"
-                      BeanClass="nl.amis.frontend.jet2adf.view.adfjetclient.EventPublisherBean"
+                      Definition="nl.amis.frontend.jet2adf.view.EventPublisherBean"
+                      BeanClass="nl.amis.frontend.jet2adf.view.EventPublisherBean"
                       xmlns="http://xmlns.oracle.com/adfm/datacontrol">
     <Source>
-      <bean-definition BeanClass="nl.amis.frontend.jet2adf.view.adfjetclient.EventPublisherBean"
+      <bean-definition BeanClass="nl.amis.frontend.jet2adf.view.EventPublisherBean"
                        DataControlHandler="oracle.adf.model.adapter.bean.BeanDCHandler" EagerPersist="false"
                        xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
     </Source>
@@ -23,6 +23,19 @@
                       xmlns="http://xmlns.oracle.com/adfm/datacontrol">
     <Source>
       <bean-definition BeanClass="nl.amis.frontend.jet2adf.view.adfX.EventHandlerBean"
+                       DataControlHandler="oracle.adf.model.adapter.bean.BeanDCHandler" EagerPersist="false"
+                       xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="EventConsumer" FactoryClass="oracle.adf.model.adapter.bean.BeanDCFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.bean.BeanDCDefinition" SupportsTransactions="false"
+                      SupportsSortCollection="true" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="nl.amis.frontend.jet2adf.view.adfjetclient.EventConsumer"
+                      BeanClass="nl.amis.frontend.jet2adf.view.adfjetclient.EventConsumer"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <bean-definition BeanClass="nl.amis.frontend.jet2adf.view.adfjetclient.EventConsumer"
                        DataControlHandler="oracle.adf.model.adapter.bean.BeanDCHandler" EagerPersist="false"
                        xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
     </Source>

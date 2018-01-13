@@ -1,11 +1,8 @@
 package nl.amis.frontend.jet2adf.view.adfX;
 
 
-
 import javax.el.ELContext;
-
 import javax.el.ExpressionFactory;
-
 import javax.el.ValueExpression;
 
 import javax.faces.context.FacesContext;

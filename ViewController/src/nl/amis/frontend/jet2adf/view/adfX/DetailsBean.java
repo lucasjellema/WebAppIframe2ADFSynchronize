@@ -2,8 +2,14 @@ package nl.amis.frontend.jet2adf.view.adfX;
 
 import javax.faces.context.FacesContext;
 
+import javax.faces.event.ValueChangeEvent;
+
+import oracle.adf.model.BindingContext;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.context.AdfFacesContext;
+
+import oracle.binding.BindingContainer;
+import oracle.binding.OperationBinding;
 
 import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
 import org.apache.myfaces.trinidad.util.ComponentReference;
@@ -56,4 +62,13 @@ public class DetailsBean {
     }
 
 
+    public void countryChangeHandler(ValueChangeEvent valueChangeEvent) {
+        System.out.println("Country Changed to = " + valueChangeEvent.getNewValue());
+        // find operation binding publishEvent and execute in order to publish contextual event
+        BindingContainer bindingContainer = BindingContext.getCurrent().getCurrentBindingsEntry();
+//        OperationBinding method = bindingContainer.getOperationBinding("publishCountryChangedEvent");
+        OperationBinding method = bindingContainer.getOperationBinding("publishEvent");
+        method.getParamsMap().put("payload", valueChangeEvent.getNewValue());
+        method.execute();
+    }
 }

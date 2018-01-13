@@ -11,7 +11,7 @@
 
               var message = {
                   "message" :  {
-                     "value" : inputvalue
+                      "value" : inputvalue
                   },
                   "mydata" :  {
                       "param1" : 42, "param2" : "train"
@@ -23,16 +23,19 @@
               parent.postMessage(message, targetOrigin);
           }
           //callParent
-          
           function init() {
-             // attach listener to receive message from parent; this is not required for sending messages to the parent window
+              // attach listener to receive message from parent; this is not required for sending messages to the parent window
               window.addEventListener("message", function (event) {
-                  console.log("Iframe receives message from parent" + event);
+                  console.log("Iframe receives message from parent" + event.data);
+                  var countrySpan = document.getElementById('currentCountry');
+                  var parsedEvent = JSON.parse(event.data.replace(/'/g, "\""));
+                  if (parsedEvent) {
+                      countrySpan.innerHTML = "Fresh Country: " + parsedEvent.payload;
+                  }
               },
               false);
           }
           //init
-          
           document.addEventListener("DOMContentLoaded", function (event) {
               init();
           });
@@ -41,7 +44,14 @@
     <body>
         <h2>Client Web App</h2>
         <div id="content">Content</div>
-        <input id="jetinputfield" type="text" value="Default"/>         
+        <input id="jetinputfield" type="text" value="Default"/>
+         
         <a href="#" onclick="callParent()">Send Message</a>
+         
+        <br/>
+        <p>
+            Country is 
+            <span id="currentCountry"></span>
+        </p>
     </body>
 </html>

@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="JETViewPageDef"
                 Package="nl.amis.frontend.jet2adf.view.pageDefs">
-  <parameters/>
-  <executables>
-    <variableIterator id="variables"/>
-  </executables>
-  <bindings>
-    <methodAction id="publishEvent" RequiresUpdateModel="true" Action="invokeMethod" MethodName="publishEvent"
-                  IsViewObjectMethod="false" DataControl="EventPublisherBean"
-                  InstanceName="bindings.publishEvent.dataControl.dataProvider"
-                  ReturnName="data.EventPublisherBean.methodResults.publishEvent_publishEvent_dataControl_dataProvider_publishEvent_result">
- <NamedData NDName="payload"  NDType="java.lang.Object"/>
-      <events xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
-        <event name="ClientAppEvent"/>
-      </events>
-      </methodAction>
-  </bindings>
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+    </executables>
+    <bindings>
+        <methodAction id="publishEvent" RequiresUpdateModel="true" Action="invokeMethod" MethodName="publishEvent"
+                      IsViewObjectMethod="false" DataControl="EventPublisherBean"
+                      InstanceName="bindings.publishEvent.dataControl.dataProvider"
+                      ReturnName="data.EventPublisherBean.methodResults.publishEvent_publishEvent_dataControl_dataProvider_publishEvent_result">
+            <NamedData NDName="payload" NDType="java.lang.Object"/>
+            <events xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+                <event name="ClientAppEvent"/>
+            </events>
+        </methodAction>
+
+        <methodAction id="handleCountryChangedEvent" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="handleCountryChangedEvent" IsViewObjectMethod="false" DataControl="EventConsumer"
+                      InstanceName="bindings.handleCountryChangedEvent.dataControl.dataProvider">
+            <NamedData NDName="payload" NDValue="${payLoad}" NDType="java.lang.Object"/>
+        </methodAction>
+    </bindings>
+    <eventMap xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+        <event name="CountryChangedEvent">
+            <producer region="*">
+            <!-- http://www.jobinesh.com/2014/05/revisiting-contextual-event-dynamic.html -->
+                <consumer handler="handleCountryChangedEvent" refresh="false"/>
+            </producer>
+        </event>
+    </eventMap>
 </pageDefinition>
