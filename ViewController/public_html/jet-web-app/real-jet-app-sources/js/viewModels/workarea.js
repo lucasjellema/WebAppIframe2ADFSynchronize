@@ -42,7 +42,7 @@ define(
                 var newBrowser = event.detail.value;
                 var oldBrowser = event.detail.previousValue;
                 
-                console.log("browser  changed to:"+newBrowser);                
+                   console.log("browser  changed to:"+newBrowser);                
                 var message = {
                     "message": {
                         "eventType":"browserChanged",

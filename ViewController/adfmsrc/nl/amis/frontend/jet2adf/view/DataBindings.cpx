@@ -10,14 +10,18 @@
     <page path="/JETView.jsff" usageId="nl_amis_frontend_jet2adf_view_JETViewPageDef"/>
     <page path="/view.jsff" usageId="nl_amis_frontend_jet2adf_view_viewPageDef"/>
     <page path="/index.jsf" usageId="nl_amis_frontend_jet2adf_view_indexPageDef"/>
+    <page path="/geopage.jsff" usageId="nl_amis_frontend_jet2adf_view_geopagePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="nl_amis_frontend_jet2adf_view_JETViewPageDef"
           path="nl.amis.frontend.jet2adf.view.pageDefs.JETViewPageDef"/>
     <page id="nl_amis_frontend_jet2adf_view_viewPageDef" path="nl.amis.frontend.jet2adf.view.pageDefs.viewPageDef"/>
     <page id="nl_amis_frontend_jet2adf_view_indexPageDef" path="nl.amis.frontend.jet2adf.view.pageDefs.indexPageDef"/>
+    <page id="nl_amis_frontend_jet2adf_view_geopagePageDef"
+          path="nl.amis.frontend.jet2adf.view.pageDefs.geopagePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="GeoDataPlaceholder" path="nl.amis.geodata.model.GeoDataPlaceholder"/>
     <dc id="EventConsumer" path="nl.amis.frontend.jet2adf.view.EventConsumer"/>
     <dc id="EventHandlerBean" path="nl.amis.frontend.jet2adf.view.EventHandlerBean"/>
     <dc id="EventPublisherBean" path="nl.amis.frontend.jet2adf.view.EventPublisherBean"/>

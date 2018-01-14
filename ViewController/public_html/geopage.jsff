@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Header -->
+                        <af:panelHeader text="Databound JSON" id="ph1"></af:panelHeader>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                <af:selectOneChoice value="#{bindings.RegioPlaceholderDataType.inputValue}" autoSubmit="true"
+                                    label="#{bindings.RegioPlaceholderDataType.label}"
+                                    required="#{bindings.RegioPlaceholderDataType.hints.mandatory}"
+                                    shortDesc="#{bindings.RegioPlaceholderDataType.hints.tooltip}" id="soc1">
+                    <f:selectItems value="#{bindings.RegioPlaceholderDataType.items}" id="si1"/>
+                    <f:validator binding="#{bindings.RegioPlaceholderDataType.validator}"/>
+                </af:selectOneChoice>
+                <af:inputText label="x" id="jsonPayloadContainer" styleClass="jsonPayload" visible="false"
+                                      binding="#{jsonProviderBackingBean.jsonContainer}">
+                            <!-- initialize JS variable jsonData['countryData'] with data based on bindings.CountriesInContinentDataType data binding -->          
+                            <af:clientAttribute name="jsonPayloadAttributes" value="{'attributes':['countryData']}"/>
+                            <af:clientAttribute name="countryData"
+                                                value=" #{jsonProviderBean[bindings.RegionalCountriesPlaceholderDataType]}"/>
+                        </af:inputText>
+                <af:listView value="#{bindings.RegionalCountriesPlaceholderDataType.collectionModel}" var="item"
+                             emptyText="#{bindings.RegionalCountriesPlaceholderDataType.viewable ? 'No data to display.' : 'Access Denied.'}"
+                             fetchSize="#{bindings.RegionalCountriesPlaceholderDataType.rangeSize}" id="lv1"
+                             partialTriggers="soc1"
+                             >
+                    <af:listItem id="li1">
+                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                            <f:facet name="separator">
+                                <af:spacer width="10" id="s1"/>
+                            </f:facet>
+                            <af:outputFormatted value="#{item.bindings.name.inputValue}" id="of1"/>
+                            <af:outputFormatted value="#{item.bindings.code.inputValue}" id="of2"/>
+                            <af:outputFormatted value="#{item.bindings.population.inputValue}" id="of3"/>
+                            <af:outputFormatted value="#{item.bindings.area.inputValue}" id="of4"/>
+                        </af:panelGroupLayout>
+                    </af:listItem>
+                </af:listView>
+                <af:button text="Back" id="b1" action="back"/>
+      
+      </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+</ui:composition>

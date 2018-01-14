@@ -82,3 +82,17 @@ function handleColorSelection(payload) {
 
 }
 //handleColorSelection
+
+subscribeToEvent("dataBoundJSONRefreshed", handleJSONRefreshed);
+
+function handleJSONRefreshed(payload) {
+    console.log("JSONRefreshed Event consumed in ADF-JET-Container " + JSON.stringify(payload));
+    var jsonData = payload.jsonData;
+    console.log("fresh JSON " + jsonData);
+    var message = {
+        'eventType' : 'freshJSON', 'payload' : jsonData
+    };
+    postMessageToJETIframe(message);
+
+}
+//handleColorSelection

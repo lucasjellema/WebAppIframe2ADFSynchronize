@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration" version="12.2.1.9.14" id="DataControls"
+                    Package="nl.amis.geodata.model">
+  <PlaceholderDataControl SupportsTransactions="true" SupportsFindMode="true" SupportsResetState="true"
+                          SupportsRangesize="true" SupportsSortCollection="true"
+                          FactoryClass="oracle.adf.model.placeholder.DataControlFactoryImpl" id="GeoDataPlaceholder"
+                          xmlns="http://xmlns.oracle.com/adfm/datacontrol"
+                          Definition="nl.amis.geodata.model.prototype.GeoDataPlaceholder"
+                          Package="nl.amis.geodata.model.prototype"/>
+</DataControlConfigs>

@@ -27,5 +27,6 @@
         </af:panelGroupLayout>
         <af:inputText label="Browser" id="itbr1" binding="#{pageFlowScope.detailsBean.browserComponent}"
                        columns="40" rows="1"/>
-    </af:panelHeader>
+        <af:button text="Geo Page" id="b4" action="geo"/>
+</af:panelHeader>
 </ui:composition>

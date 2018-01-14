@@ -21,4 +21,41 @@
       <property
          name="exceptionHandler">false</property>
    </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">geopage</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">726.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>geopage&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">127.29883</property>
+      <property
+         name="page">/geopage.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">geo</property>
+      <property
+         name="sdm:polyPoints">R46,486.0,159.0459,684.37787,123.44824,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View3"
+      to="View2">
+      <property
+         name="fromOutcome">back</property>
+      <property
+         name="sdm:polyPoints">L54,685.0,130.44824,486.62115,166.0459,R54</property>
+   </ControlFlowCase>
 </SDM>

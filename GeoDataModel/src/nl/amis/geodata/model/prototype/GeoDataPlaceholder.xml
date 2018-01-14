@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/placeholder"
+  Name="GeoDataPlaceholder"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge">
+  <ViewUsage
+    Name="RegioPlaceholderDataType"
+    ViewObjectName="nl.amis.geodata.model.prototype.RegioPlaceholderDataType"/>
+  <ViewUsage
+    Name="LandsPlaceholderDataType"
+    ViewObjectName="nl.amis.geodata.model.prototype.LandsPlaceholderDataType"/>
+  <ViewUsage
+    Name="RegionalCountriesPlaceholderDataType"
+    ViewObjectName="nl.amis.geodata.model.prototype.RegionalCountriesPlaceholderDataType"/>
+  <ViewLinkUsage
+    Name="DTLink2"
+    ViewLinkObjectName="nl.amis.geodata.model.prototype.DTLink2"
+    SrcViewUsageName="nl.amis.geodata.model.prototype.GeoDataPlaceholder.RegioPlaceholderDataType"
+    DstViewUsageName="nl.amis.geodata.model.prototype.GeoDataPlaceholder.RegionalCountriesPlaceholderDataType"
+    Reversed="false"/>
+</AppModule>
