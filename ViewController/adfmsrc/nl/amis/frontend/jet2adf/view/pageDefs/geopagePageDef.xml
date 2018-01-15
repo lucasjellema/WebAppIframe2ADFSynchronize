@@ -13,7 +13,7 @@
               id="LocalCountriesDataTypeIterator"/>
     <iterator Binds="RegioPlaceholderDataType" RangeSize="25" DataControl="GeoDataPlaceholder"
               id="RegioPlaceholderDataTypeIterator"/>
-    <iterator Binds="RegionalCountriesPlaceholderDataType" RangeSize="25" DataControl="GeoDataPlaceholder"
+    <iterator Binds="RegionalCountriesPlaceholderDataType" RangeSize="100" DataControl="GeoDataPlaceholder"
               id="RegionalCountriesPlaceholderDataTypeIterator"/>
   </executables>
   <bindings>
