@@ -17,8 +17,14 @@
             <!-- local source -= jet-web-app/index.xhtml "
             local JET: http://localhost:8000/
             -->
-                <af:inlineFrame source="http://localhost:8000/" id="jetIframe" sizing="preferred"
-                                styleClass="AFStretchWidth" binding="#{client2serverBean.jetIframe}">
+                <af:selectOneRadio label="Select embedded web application" id="sor1" autoSubmit="true"
+                                   value="#{client2serverBean.iframeSource}">
+                    <af:selectItem label="Oracle JET" value="http://localhost:8000/" id="si1"/>
+                    <af:selectItem label="Plain HTML5 (local)" value="jet-web-app/index.xhtml" id="si2"/>
+                </af:selectOneRadio>
+                <af:inlineFrame source="#{client2serverBean.iframeSource}" id="jetIframe" sizing="preferred"
+                                styleClass="AFStretchWidth" binding="#{client2serverBean.jetIframe}"
+                                partialTriggers="sor1">
                     <af:serverListener type="messageRouter" method="#{client2serverBean.handleMessageFromJet}"/>
                 </af:inlineFrame>
             </af:panelGroupLayout>

@@ -7,7 +7,8 @@ function init() {
         var data = event.data;
         var message = data["message"];
 
-        if (data && message && message['eventType'] == 'browserChanged') {
+        if (data && message){
+        if ( message['eventType'] == 'browserChanged') {
             console.log("ADF JET Container Taskflow received browser changed event from JET App")
             var browser = message.value;
             publishEvent("browserSelectionEvent", 
@@ -18,6 +19,17 @@ function init() {
 
             });
         }
+        if ( message['eventType'] == 'deepMessage') {
+            console.log("ADF JET Container Taskflow received deep message event from web App")
+            var message = message.value;
+            publishEvent("deepMessageEvent", 
+            {
+                "message" : message
+               ,"sourceTaskFlow" :"ADF-JET-container-taskflow"
+               ,"eventOrigin" : "JET:jet-embedded"
+
+            });
+        }        }
         else {
             sendMessageFromJetToServer(event.data);
         }
@@ -79,9 +91,19 @@ function handleColorSelection(payload) {
         'eventType' : 'colorChanged', 'payload' : color
     };
     postMessageToJETIframe(message);
-
 }
 //handleColorSelection
+
+
+subscribeToEvent("countrySelectionEvent", handleCountrySelection);
+function handleCountrySelection(payload) {
+    var country= payload.selectedCountry;
+    var message = {
+        'eventType' : 'countryChanged', 'payload' : country
+    };
+    postMessageToJETIframe(message);
+}
+//handleCountrySelection
 
 subscribeToEvent("dataBoundJSONRefreshed", handleJSONRefreshed);
 

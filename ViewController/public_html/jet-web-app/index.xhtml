@@ -2,7 +2,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>Client Side Web App</title>
-        <!--        <script src="client-web-app-lib.js"></script>-->
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
         <script>
           function callParent() {
               console.log('send message from Web App to parent window');
@@ -12,6 +12,7 @@
               var message = {
                   "message" :  {
                       "value" : inputvalue
+                      ,"eventType" : "deepMessage"
                   },
                   "mydata" :  {
                       "param1" : 42, "param2" : "train"
@@ -23,6 +24,42 @@
               parent.postMessage(message, targetOrigin);
           }
           //callParent
+          
+var jsonCountryData = {
+};
+          
+function drawMultSeries() {
+    var countryData = jsonCountryData;
+    var headers = ['Country', 'Population', 'Area [km^2 *10]'];
+    var cdata = [headers];
+    //TODO filter by selected attribute (population, area, coastline, life expectancy) and ascending or descending
+    countryData.sort( function(a,b){ return parseInt(b.population) - parseInt(a.population); }).splice(8);
+    
+    for (var i = 0;i &lt; countryData.length;i++) {
+        cdata.push([countryData[i].name, parseInt(countryData[i].population), parseInt(countryData[i].area)*10]);
+
+    }
+    //for
+    var data = google.visualization.arrayToDataTable(cdata);
+
+    var options = {
+        title : 'Countries in Continent', chartArea :  {
+            width : '50%'
+        },
+        hAxis :  {
+            title : 'Total Population', minValue : 0
+        },
+        vAxis :  {
+            title : 'Country'
+        }
+    };
+    // create chart in DIV element produced from panelHeader
+    var targetContainerForChartId = "countriesChart";
+    var chart = new google.visualization.BarChart(document.getElementById(targetContainerForChartId));
+    chart.draw(data, options);
+}
+
+          
           function init() {
               // attach listener to receive message from parent; this is not required for sending messages to the parent window
               window.addEventListener("message", function (event) {
@@ -31,9 +68,21 @@
                       var countrySpan = document.getElementById('currentCountry');
                       countrySpan.innerHTML = "Fresh Country: " + event.data.payload;
                   }
+                  if (event.data &amp;&amp; event.data.eventType == 'freshJSON' &amp;&amp; event.data.payload) {
+                        var freshJSON = event.data.payload.countryData.values;
+                        console.log("Fresh Countries " + freshJSON);
+                        jsonCountryData = event.data.payload.countryData.values;
+// countries.forEach(function (country) { countryNodes.push(createNode(country.name, parseInt(country.population), parseInt(country.area))) })
+                       google.charts.setOnLoadCallback(drawMultSeries);
+
+                  }
               },
               false);
-          }
+               google.charts.load('current', 
+    {
+        packages : ['corechart', 'bar']
+    });
+}
           //init
           document.addEventListener("DOMContentLoaded", function (event) {
               init();
@@ -43,8 +92,7 @@
     <body>
         <h2>Client Web App</h2>
         <div id="content">Content</div>
-        <input id="jetinputfield" type="text" value="Default"/>
-         
+        <input id="jetinputfield" type="text" value="Default"/>         
         <a href="#" onclick="callParent()">Send Message</a>
          
         <br/>
@@ -52,5 +100,6 @@
             Country is 
             <span id="currentCountry"></span>
         </p>
+        <div id="countriesChart"></div>
     </body>
 </html>
