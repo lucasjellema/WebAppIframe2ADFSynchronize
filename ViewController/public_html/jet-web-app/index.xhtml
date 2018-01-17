@@ -63,11 +63,11 @@
               // attach listener to receive message from parent; this is not required for sending messages to the parent window
               window.addEventListener("message", function (event) {
                   console.log("Iframe receives message from parent" + event.data);
-                  if (event.data && event.data.eventType == 'countryChanged' && event.data.payload) {
+                  if (event.data &amp;&amp; event.data.eventType == 'countryChanged' &amp;&amp; event.data.payload) {
                       var countrySpan = document.getElementById('currentCountry');
                       countrySpan.innerHTML = "Fresh Country: " + event.data.payload;
                   }
-                  if (event.data && event.data.eventType == 'freshJSON' && event.data.payload) {
+                  if (event.data &amp;&amp; event.data.eventType == 'freshJSON' &amp;&amp; event.data.payload) {
                       jsonCountryData = event.data.payload.countryData.values;
                       google.charts.setOnLoadCallback(drawMultSeries);
 
