@@ -15,6 +15,8 @@ import org.apache.myfaces.trinidad.util.Service;
 
 public class Client2Server {
 
+
+private String iframeSource;
     public Client2Server() {
         super();
     }
@@ -66,5 +68,13 @@ public class Client2Server {
         }
     }
 
+    public void setIframeSource(String iframeSource) {
+    System.out.println("new value iframesource "+iframeSource);
+        this.iframeSource = iframeSource;
+    }
+
+    public String getIframeSource() {
+        return iframeSource;
+    }
 }
 

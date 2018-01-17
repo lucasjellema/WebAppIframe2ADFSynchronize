@@ -4,8 +4,8 @@
     <af:panelHeader text="Classic ADF X Taskflow" id="ph1">
      <af:clientAttribute name="inlineFrameId" value="#{pageFlowScope.detailsBean.browserComponentClientId}"/>
         <af:inputText label="Message" id="it1" binding="#{pageFlowScope.detailsBean.messageComponent}"
-                      value="#{pageFlowScope.detailsBean.message}" columns="120" rows="1"/>
-        <af:selectOneChoice label="Choose a country" id="soc1" autoSubmit="true"
+                      value="#{pageFlowScope.detailsBean.message}" columns="120" rows="1" styleClass="messageInputHandle"/>
+        <af:selectOneChoice label="Choose a country" id="soc1" autoSubmit="false"
                             valueChangeListener="#{pageFlowScope.detailsBean.countryChangeHandler}">
             <af:selectItem label="The Netherlands" value="nl" id="si1"/>
             <af:selectItem label="Germany" value="de" id="si2"/>
@@ -13,6 +13,7 @@
             <af:selectItem label="United States of America" value="us" id="si4"/>
             <af:selectItem label="Spain" value="es" id="si5"/>
             <af:selectItem label="Norway" value="no" id="si6"/>
+            <af:clientListener method="countrySelectionListener" type="valueChange"/>
         </af:selectOneChoice>
         <af:panelGroupLayout id="pgl1">
             <af:button text="Red" id="b1" inlineStyle="color:red;" partialSubmit="false">
@@ -27,5 +28,6 @@
         </af:panelGroupLayout>
         <af:inputText label="Browser" id="itbr1" binding="#{pageFlowScope.detailsBean.browserComponent}"
                        columns="40" rows="1"/>
-    </af:panelHeader>
+        <af:button text="Geo Page" id="b4" action="geo"/>
+</af:panelHeader>
 </ui:composition>

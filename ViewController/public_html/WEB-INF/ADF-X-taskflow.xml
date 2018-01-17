@@ -13,6 +13,23 @@
     <view id="view">
       <page>/view.jsff</page>
     </view>
+    <view id="geopage">
+      <page>/geopage.jsff</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id>view</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>geo</from-outcome>
+        <to-activity-id>geopage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>geopage</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>view</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

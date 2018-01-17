@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/placeholder"
+  Name="RegionalCountriesPlaceholderDataType"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true">
+  <ViewAttribute
+    Name="name"
+    Type="java.lang.String"/>
+  <ViewAttribute
+    Name="code"
+    Type="java.lang.String"/>
+  <ViewAttribute
+    Name="continent"
+    Type="java.lang.String"/>
+  <ViewAttribute
+    Name="capital"
+    Type="java.lang.String"/>
+  <ViewAttribute
+    Name="population"
+    Type="java.lang.String"/>
+  <ViewAttribute
+    Name="area"
+    Type="java.lang.String"/>
+  <ViewAttribute
+    Name="coastline"
+    Type="java.lang.String"/>
+  <ViewAttribute
+    Name="governmentForm"
+    Type="java.lang.String"/>
+  <ViewAttribute
+    Name="currency"
+    Type="java.lang.String"/>
+  <ViewAttribute
+    Name="currencyCode"
+    Type="java.lang.String"/>
+  <ViewAttribute
+    Name="dialingPrefix"
+    Type="java.lang.String"/>
+  <ViewAttribute
+    Name="birthrate"
+    Type="java.lang.String"/>
+  <ViewAttribute
+    Name="deathrate"
+    Type="java.lang.String"/>
+  <ViewAttribute
+    Name="liveExpectancy"
+    Type="java.lang.String"/>
+  <ViewAttribute
+    Name="url"
+    Type="java.lang.String"/>
+  <StaticList
+    Name="RegionalCountriesPlaceholderDataType"
+    Rows="247"
+    Columns="15"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      xmlns="http://xmlns.oracle.com/bc4j"
+      PropertiesFile="nl.amis.geodata.model.GeoDataModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

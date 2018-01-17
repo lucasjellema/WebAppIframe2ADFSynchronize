@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="geopagePageDef"
+                Package="nl.amis.frontend.jet2adf.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ContinentsDataType" RangeSize="25" DataControl="GeoDataPlaceholder"
+              id="ContinentsDataTypeIterator"/>
+    <iterator Binds="CountriesInContinentDataType" RangeSize="25" DataControl="GeoDataPlaceholder"
+              id="CountriesInContinentDataTypeIterator"/>
+    <iterator Binds="CountriesDataType" RangeSize="250" DataControl="GeoDataPlaceholder" id="CountriesDataTypeIterator"/>
+    <iterator Binds="LocalCountriesDataType" RangeSize="25" DataControl="GeoDataPlaceholder"
+              id="LocalCountriesDataTypeIterator"/>
+    <iterator Binds="RegioPlaceholderDataType" RangeSize="25" DataControl="GeoDataPlaceholder"
+              id="RegioPlaceholderDataTypeIterator"/>
+    <iterator Binds="RegionalCountriesPlaceholderDataType" RangeSize="100" DataControl="GeoDataPlaceholder"
+              id="RegionalCountriesPlaceholderDataTypeIterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="RegioPlaceholderDataTypeIterator" ListOperMode="navigation"
+          ListIter="RegioPlaceholderDataTypeIterator" id="RegioPlaceholderDataType" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </list>
+    <tree IterBinding="RegionalCountriesPlaceholderDataTypeIterator" id="RegionalCountriesPlaceholderDataType">
+      <nodeDefinition DefName="nl.amis.geodata.model.prototype.RegionalCountriesPlaceholderDataType"
+                      Name="RegionalCountriesPlaceholderDataType0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="code"/>
+          <Item Value="population"/>
+          <Item Value="area"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

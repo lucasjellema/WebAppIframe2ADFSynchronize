@@ -1,6 +1,4 @@
-
 var subscriptions = {};
-
 function publishEvent( eventType, payload) {
    console.log('Event published of type '+eventType);
    console.log('Event payload'+JSON.stringify(payload));
@@ -19,8 +17,6 @@ function publishEvent( eventType, payload) {
    }//if     
     
 }// publishEvent
-
-
 // register an interest in an eventType by providing a callback function that takes a payload parameter
 function subscribeToEvent( eventType, callback) {
    if (!subscriptions[eventType]) { subscriptions[eventType]= [ ]};
